@@ -1,7 +1,9 @@
 const express = require("express");
 const { postgraphile } = require("postgraphile");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 app.use(
   postgraphile(
@@ -11,6 +13,7 @@ app.use(
       watchPg: true,
       graphiql: true,
       enhanceGraphiql: true,
+      enableCors: true,
     }
   )
 );
